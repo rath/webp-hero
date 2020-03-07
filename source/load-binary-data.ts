@@ -4,6 +4,9 @@ export class LoadingError extends Error {}
 export async function loadBinaryData(url: string): Promise<Uint8Array> {
 	return new Promise<Uint8Array>((resolve, reject) => {
 
+	  if (url.match('https://[0-9a-z]+.cloudfront.net/')) {
+	  	url += '?xhr=1'
+		}
 		const xhr = new XMLHttpRequest()
 		xhr.open("GET", url)
 		xhr.responseType = "arraybuffer"
