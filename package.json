@@ -14,7 +14,7 @@
 	],
 	"scripts": {
 		"start": "serve",
-		"prepare": "echo 'PREPARE'",
+		"prepare": "yon run build",
 		"build": "run-s clean barrel compile && run-p bundle polyfills",
 		"clean": "rimraf dist dist-cjs && mkdirp dist dist-cjs",
 		"barrel": "barrelsby --delete --directory source --exclude 'bundle.ts$'",
@@ -55,6 +55,7 @@
 		"rimraf": "^3.0.2",
 		"serve": "^11.3.0",
 		"tinyify": "^2.5.2",
-		"typescript": "^3.7.5"
+		"typescript": "^3.7.5",
+		"yarn-or-npm": "^3.0.1"
 	}
 }
