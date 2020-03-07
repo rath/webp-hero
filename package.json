@@ -18,6 +18,7 @@
 		"build": "run-s clean barrel compile && run-p bundle polyfills",
 		"clean": "rimraf dist dist-cjs && mkdirp dist dist-cjs",
 		"barrel": "barrelsby --delete --directory source --exclude 'bundle.ts$'",
+    "install": "npm install",
     "postinstall": "run-s build",
 		"compile": "run-p compile-esm compile-cjs",
 		"compile-esm": "tsc",
