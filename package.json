@@ -8,6 +8,7 @@
 	"files": [
 		"dist",
 		"dist-cjs",
+    "source",
 		"libwebp/dist/webp.js",
 		"libwebp/dist/webp.d.ts",
 		"libwebp/dist/webp.cjs.js"
