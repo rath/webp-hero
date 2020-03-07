@@ -42,7 +42,9 @@
 		"url": "https://github.com/chase-moskal/webp-hero/issues"
 	},
 	"homepage": "https://github.com/chase-moskal/webp-hero#readme",
-	"dependencies": {},
+	"dependencies": {
+    "lpad": "^2.0.1"
+  },
 	"devDependencies": {
 		"array-from": "^2.1.1",
 		"barrelsby": "^2.2.0",
