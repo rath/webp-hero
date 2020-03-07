@@ -14,7 +14,7 @@
 	],
 	"scripts": {
 		"start": "serve",
-		"prepare": "yon run build",
+		"prepare": "echo 'PREPARE' && yon run build",
     "postinstall": "echo 'POST INSTALL'",
 		"build": "run-s clean barrel compile && run-p bundle polyfills",
 		"clean": "rimraf dist dist-cjs && mkdirp dist dist-cjs",
