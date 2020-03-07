@@ -14,15 +14,12 @@
 	],
 	"scripts": {
 		"start": "serve",
-		"prepare": "echo 'PREPARE' && yon run build",
-    "postinstall": "echo 'POST INSTALL'",
+		"prepare": "run-s build test",
 		"build": "run-s clean barrel compile && run-p bundle polyfills",
-		"clean": "rimraf dist dist-cjs && mkdirp dist dist-cjs",
+		"clean": "rimraf dist-cjs && mkdirp dist-cjs",
 		"barrel": "barrelsby --delete --directory source --exclude 'bundle.ts$'",
-		"compile": "run-p compile-esm compile-cjs",
-		"compile-esm": "tsc",
-		"compile-cjs": "tsc --outDir dist-cjs --target es5 --module commonjs && replace 'libwebp\\/dist\\/webp\\.js' 'libwebp/dist/webp.cjs.js' dist-cjs/webp-machine.js",
-		"bundle": "browserify dist-cjs/webp-hero.bundle.js -p tinyify -o dist-cjs/webp-hero.bundle.js",
+		"compile": "tsc --outDir dist-cjs --target es5 --module commonjs && replace 'libwebp\\/dist\\/webp\\.js' 'libwebp/dist/webp.cjs.js' dist-cjs/webp-machine.js",
+		"bundle": "browserify dist-cjs/webp-hero.bundle.js -o dist-cjs/webp-hero.bundle.js",
 		"polyfills": "concat-cli -f node_modules/es6-promise/dist/es6-promise.auto.min.js -f node_modules/mdn-polyfills/Array.from.js -o dist-cjs/polyfills.js",
 		"test": "exit 0"
 	},
@@ -42,9 +39,7 @@
 		"url": "https://github.com/chase-moskal/webp-hero/issues"
 	},
 	"homepage": "https://github.com/chase-moskal/webp-hero#readme",
-	"dependencies": {
-    "lpad": "^2.0.1"
-  },
+	"dependencies": {},
 	"devDependencies": {
 		"array-from": "^2.1.1",
 		"barrelsby": "^2.2.0",
