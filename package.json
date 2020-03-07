@@ -14,7 +14,7 @@
 	],
 	"scripts": {
 		"start": "serve",
-		"prepare": "npm run build",
+		"prepare": "echo 'PREPARE' && npm run build",
 		"build": "run-s clean barrel compile && run-p bundle polyfills",
 		"clean": "rimraf dist dist-cjs && mkdirp dist dist-cjs",
 		"barrel": "barrelsby --delete --directory source --exclude 'bundle.ts$'",
