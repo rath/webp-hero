@@ -3,12 +3,12 @@
 		"baseUrl": ".",
 		"rootDir": "source",
 		"outDir": "dist",
-		"target": "esnext",
+		"target": "es5",
 		"lib": ["es6", "dom"],
-		"module": "esnext",
+		"module": "commonjs",
 		"moduleResolution": "node",
 		"experimentalDecorators": true,
 		"declaration": true,
-		"sourceMap": true
+		"sourceMap": false
 	}
 }

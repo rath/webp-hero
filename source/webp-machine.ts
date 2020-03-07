@@ -73,9 +73,10 @@ export class WebpMachine {
 				image.src = this.cache[src] = pngData
 			}
 			catch (error) {
-				error.name = WebpMachineError.name
-				error.message = `failed to polyfill image "${src}": ${error.message}`
-				throw error
+			  console.log(error);
+				// error.name = WebpMachineError.name
+				// error.message = `failed to polyfill image "${src}": ${error.message}`
+				// throw error
 			}
 		}
 	}

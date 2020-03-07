@@ -4,16 +4,17 @@ export class LoadingError extends Error {}
 export async function loadBinaryData(url: string): Promise<Uint8Array> {
 	return new Promise<Uint8Array>((resolve, reject) => {
 
+		let newUrl = url;
 	  if (url.match('https://[0-9a-z]+.cloudfront.net/')) {
-	  	url += '?xhr=1'
+	  	newUrl = url + '?xhr=3'
 		}
 		const xhr = new XMLHttpRequest()
-		xhr.open("GET", url)
+		xhr.open("GET", newUrl)
 		xhr.responseType = "arraybuffer"
 
 		const handleError = () => {
 			reject(
-				new LoadingError(`failed to load binary data, code "${xhr.status}" from "${url}"`)
+				new LoadingError(`Error on binary data, status="${xhr.status}" from "${url}"`)
 			)
 		}
 	

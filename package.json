@@ -1,28 +1,23 @@
 {
 	"name": "webp-hero",
-	"version": "0.0.0-dev.24",
+	"version": "0.1.0",
 	"description": "webp image format polyfill for browsers",
-	"main": "dist-cjs/index.js",
+	"main": "dist/index.js",
 	"module": "dist/index.js",
-	"types": "dist-cjs/index.d.ts",
+	"types": "dist/index.d.ts",
+	"private": true,
 	"files": [
 		"dist",
-		"dist-cjs",
-    "source",
 		"libwebp/dist/webp.js",
 		"libwebp/dist/webp.d.ts",
 		"libwebp/dist/webp.cjs.js"
 	],
 	"scripts": {
-		"start": "serve",
-		"prepare": "run-s build test",
-		"build": "run-s clean barrel compile && run-p bundle polyfills",
-		"clean": "rimraf dist-cjs && mkdirp dist-cjs",
-		"barrel": "barrelsby --delete --directory source --exclude 'bundle.ts$'",
-		"compile": "tsc --outDir dist-cjs --target es5 --module commonjs && replace 'libwebp\\/dist\\/webp\\.js' 'libwebp/dist/webp.cjs.js' dist-cjs/webp-machine.js",
-		"bundle": "browserify dist-cjs/webp-hero.bundle.js -o dist-cjs/webp-hero.bundle.js",
-		"polyfills": "concat-cli -f node_modules/es6-promise/dist/es6-promise.auto.min.js -f node_modules/mdn-polyfills/Array.from.js -o dist-cjs/polyfills.js",
-		"test": "exit 0"
+		"prepare": "yon run build",
+		"build": "yon run compile && yon run polyfills",
+		"compile": "rm -f dist/*.d.ts && tsc",
+		"watch": "rm -f dist/*.d.ts && tsc --watch",
+		"polyfills": "cp polyfills.js dist"
 	},
 	"repository": {
 		"type": "git",
@@ -42,18 +37,7 @@
 	"homepage": "https://github.com/chase-moskal/webp-hero#readme",
 	"dependencies": {},
 	"devDependencies": {
-		"array-from": "^2.1.1",
-		"barrelsby": "^2.2.0",
-		"browserify": "^16.5.0",
-		"concat-cli": "^4.0.0",
-		"es6-promise": "^4.2.8",
-		"mdn-polyfills": "^5.20.0",
-		"mkdirp": "^1.0.3",
-		"npm-run-all": "^4.1.5",
 		"replace": "^1.1.5",
-		"rimraf": "^3.0.2",
-		"serve": "^11.3.0",
-		"tinyify": "^2.5.2",
 		"typescript": "^3.7.5",
 		"yarn-or-npm": "^3.0.1"
 	}
